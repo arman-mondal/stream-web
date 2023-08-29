@@ -47,7 +47,7 @@ export default function UserLoginPage() {
     }
 
     const handlepost = async (user_data)=>{
-        const response=await fetch('https://myapi.armanmondal.in/user/login',{
+        const response=await fetch('https:///api.dcvip.one/user/login',{
             method:'POST',
             headers:{
                 'Content-Type':'application/json'

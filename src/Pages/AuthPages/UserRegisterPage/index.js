@@ -22,7 +22,7 @@ const UserRegistrationPage=()=>{
         
     }
       const handlepost=async (user_data)=>{
-            const response=await fetch('https://myapi.armanmondal.in/user/signup',{
+            const response=await fetch('https:///api.dcvip.one/user/singup',{
                 method:'POST',
                 headers:{
                     'Content-Type':'application/json'
