@@ -3,19 +3,19 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext();
 
-export function useAuth() {
+export function StreameruseAuth() {
   return useContext(AuthContext);
 }
 
-export function AuthProvider({ children }) {
-  const [token, setToken] = useState(localStorage.getItem('token'));
+export function StreamerAuthProvider({ children }) {
+  const [token, setToken] = useState(localStorage.getItem('StreamerToken'));
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function verifyToken() {
       if (token) {
         try {
-          const response = await fetch('http://localhost:5000/user/protected', {
+          const response = await fetch('http://localhost:5000/streamer/protected', {
             method: 'GET',
             headers: {
               Authorization: token,

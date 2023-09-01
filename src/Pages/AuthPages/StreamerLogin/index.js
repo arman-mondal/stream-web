@@ -23,7 +23,7 @@ const NoEmailPassword=()=>{
   </div>)
 }
 
-export default function UserLoginPage() {
+const StreamerLogin=()=>{
     const[loginsuccessfull,setloginsuccessfull]=useState(false);
     const[loginunsuccessfull,setloginunsuccessfull]=useState(false);
     const[NoCredentials,setNoCredentials]=useState(false);
@@ -47,7 +47,7 @@ export default function UserLoginPage() {
     }
 
     const handlepost = async (user_data)=>{
-        const response=await fetch('http://localhost:5000/user/login',{
+        const response=await fetch('http://localhost:5000/streamer/login',{
             method:'POST',
             headers:{
                 'Content-Type':'application/json'
@@ -60,56 +60,60 @@ export default function UserLoginPage() {
         if(response.status===200){
             setloginsuccessfull(true)
         const data=await response.json()
-        localStorage.setItem('token',data.token)
-        window.location.href='/user/dashboard'
+        localStorage.setItem('StreamerToken',data.token)
+        window.location.href='/streamer/dashboard'
 
         }
     }
-  return (<div>
-            {NoCredentials && <NoEmailPassword/>}
-            {loginsuccessfull && <LoginSuccessAlert/>}
-            {loginunsuccessfull && <LoginErrorAlert/>}
-    <div className='h-screen w-full flex justify-center items-center' >
+    return(<div>
+        {NoCredentials && <NoEmailPassword/>}
+        {loginsuccessfull && <LoginSuccessAlert/>}
+        {loginunsuccessfull && <LoginErrorAlert/>}
+<div className='h-screen w-full flex justify-center items-center' >
 
 <div className="card w-96 bg-base-100 h-max shadow-xl">
-  <figure className="h-max pb-10 pt-10 w-full flex justify-center ">
-  <a className="btn btn-ghost cursor-text hover:bg-none normal-case text-4xl"><img src="https://img.icons8.com/3d-fluency/94/youtube-play.png"/> Streamzz</a>
+<figure className="h-max pb-10 pt-10 w-full flex justify-center ">
+<a className="btn btn-ghost cursor-text hover:bg-none normal-case text-4xl"><img src="https://img.icons8.com/3d-fluency/94/youtube-play.png"/> Streamzz</a>
 
-  </figure>
-  <div className="card-body items-center text-center">
-    
-  <div className="form-control w-full m-5 max-w-xs">
-  <label className="label">
-    <span className="label-text">What is your email?</span>
-    <span className="label-text-alt text-red-600">*</span>
-  </label>
-  <input type="email" id='user_email' placeholder="example@email.com" className="input input-bordered w-full max-w-xs" />
+</figure>
+<div className="card-body items-center text-center">
+
+<div className="form-control w-full m-5 max-w-xs">
+<label className="label">
+<span className="label-text">What is your email?</span>
+<span className="label-text-alt text-red-600">*</span>
+</label>
+<input type="email" id='user_email' placeholder="example@email.com" className="input input-bordered w-full max-w-xs" />
 
 </div>
 <div className="form-control w-full max-w-xs mb-5">
-  <label className="label">
-    <span className="label-text">What is your Password</span>
-    <span className="label-text-alt text-red-500 ">*</span>
-  </label>
-  <input type="password" id='user_password' placeholder="Password" className="input input-bordered w-full max-w-xs" />
+<label className="label">
+<span className="label-text">What is your Password</span>
+<span className="label-text-alt text-red-500 ">*</span>
+</label>
+<input type="password" id='user_password' placeholder="Password" className="input input-bordered w-full max-w-xs" />
 </div>
 
-    
-    <div className="card-actions">
+
+<div className="card-actions">
 
 
-      <button onClick={handlelogin} className="btn btn-primary">Login</button>
+  <button onClick={handlelogin} className="btn btn-primary">Login</button>
 
 
 
-    </div>
-    <div className='w-full mt-2 flex-1 items-center ' >
-
-    <a href='/user/register'>Don't have a account</a>
-
-    </div>
-  </div>
 </div>
-    </div>
-  </div>)
+<div className='w-full mt-2 flex-1 items-center ' >
+
+<a href='/streamer/signup'>Don't have a account</a>
+
+</div>
+</div>
+</div>
+</div>
+</div>)
 }
+
+export default StreamerLogin
+
+
