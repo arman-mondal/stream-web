@@ -13,7 +13,7 @@ const StreamerHome =()=>{
     useEffect(() => {
       async function fetchData() {
         try {
-          const response = await fetch('http://localhost:5000/streamer/protected', {
+          const response = await fetch('https://api.dcvip.one/streamer/protected', {
             method: 'GET',
             headers: {
               Authorization: token,

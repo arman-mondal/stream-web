@@ -47,7 +47,7 @@ const StreamerLogin=()=>{
     }
 
     const handlepost = async (user_data)=>{
-        const response=await fetch('http://localhost:5000/streamer/login',{
+        const response=await fetch('https://api.dcvip.one/streamer/login',{
             method:'POST',
             headers:{
                 'Content-Type':'application/json'

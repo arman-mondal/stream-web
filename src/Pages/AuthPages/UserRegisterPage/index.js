@@ -22,7 +22,7 @@ const UserRegistrationPage=()=>{
         
     }
       const handlepost=async (user_data)=>{
-            const response=await fetch('http://loclahost:5000/user/signup',{
+            const response=await fetch('https://api.dcvip.one/user/signup',{
                 method:'POST',
                 headers:{
                     'Content-Type':'application/json'

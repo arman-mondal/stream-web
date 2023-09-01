@@ -12,7 +12,7 @@ function DashboardPage() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('http://localhost:5000/protected', {
+        const response = await fetch('https://api.dcvip.one/protected', {
           method: 'GET',
           headers: {
             Authorization: token,

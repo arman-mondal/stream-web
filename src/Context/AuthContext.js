@@ -15,7 +15,7 @@ export function AuthProvider({ children }) {
     async function verifyToken() {
       if (token) {
         try {
-          const response = await fetch('http://localhost:5000/user/protected', {
+          const response = await fetch('https://api.dcvip.one/user/protected', {
             method: 'GET',
             headers: {
               Authorization: token,
